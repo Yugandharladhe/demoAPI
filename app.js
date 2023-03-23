@@ -1,12 +1,18 @@
 const express=require("express")
 const app=express()
 const path=require("path")
+const mongoose=require("mongoose")
 const QRCode=require("qrcode")
 var port=process.env.PORT||3000
+const bodyParser=require("body-parser");
+const { application } = require("express")
 
 app.set("view engine","hbs")
 app.set("views",path.join(__dirname,"view"))
 
+app.use(bodyParser.json(
+    {type:'application/json'}
+))
 app.use(express.static(path.join(__dirname,"public")))
 app.get("/new",(req,res)=>{
     res.render("index")
@@ -17,7 +23,24 @@ app.get("/code",async(req,res)=>{
     res.render("index",{source:src})
 })
 
+app.get("/form",async(req,res)=>{
+    res.render("form")
+})
 
-app.listen(port,()=>{
+app.post("/submit",async(req,res)=>{
+    const name=req.body.name;
+    const email=req.body.email;
+    const comment=req.body.message;
+    console.log(name)
+    res.send("form submitted")
+})
+
+
+
+
+
+app.listen(port,async()=>{
+    await mongoose.connect("mongodb+srv://system:pass123@cluster1.ybqcamf.mongodb.net/?retryWrites=true&w=majority")
+    console.log("connection Successfull")
     console.log("app is listening")
 })

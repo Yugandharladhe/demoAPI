@@ -151,3 +151,24 @@
 .enquiry{
 
 }
+
+.form{
+  display: flex;
+  margin-top: 50px;
+  padding: 30px;
+  /* background-color: blue; */
+  opacity: 0.7;
+  font-family:'Merriweather', serif;
+  
+}
+.innerform{
+  align-items: end;
+  background-color: antiquewhite;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid rgb(34, 228, 238);
+}
+#bg{
+  background-image: url("../img/bgform.jpeg");
+  background-position: center;
+}
