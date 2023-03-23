@@ -8,27 +8,7 @@ app.get("/",(req,res)=>{
 })
 
 app.get("/code",async(req,res)=>{
-    const obj=[{
-        menuItem:"xyz",
-        quantity:3,
-        instruction:"less"
-    },
-    {
-        menuItem:"pqr",
-        quantity:1,
-        instruction:"more"
-    },
-    {
-        menuItem:"pqr",
-        quantity:2,
-        instruction:"normal"
-    },
-    {
-        menuItem:"yzt",
-        quantity:3,
-        instruction:"extreme"
-    }];
-    const src=await QRCode.toDataURL(obj)
+    const src=await QRCode.toDataURL(JSON.stringify({name:"yugandhar",lname:"ladhe"}))
     res.render("index",{src:src,stmt:"Scan this QR Code"})
 })
 
