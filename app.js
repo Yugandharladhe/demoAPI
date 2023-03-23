@@ -6,7 +6,9 @@ var port=process.env.PORT||3000
 
 app.set("view engine","hbs")
 app.set("views",path.join(__dirname,"view"))
-app.get("/",(req,res)=>{
+
+app.use(express.static(path.join(__dirname,"public")))
+app.get("/new",(req,res)=>{
     res.render("index")
 })
 
