@@ -9,7 +9,7 @@ app.get("/",(req,res)=>{
 
 app.get("/code",async(req,res)=>{
     const src=await QRCode.toDataURL(JSON.stringify({name:"yugandhar",lname:"ladhe"}))
-    res.render("index",{src:src,stmt:"Scan this QR Code"})
+    res.render("index")
 })
 
 app.set("view engine","ejs")
