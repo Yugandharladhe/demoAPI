@@ -16,22 +16,11 @@ app.get("/",(req,res)=>{
     res.render("index")
 })
 
-app.get("/code",async(req,res)=>{
-    const src=await QRCode.toDataURL(JSON.stringify({name:"yugandhar",lname:"ladhe"}))
-    res.render("index",{source:src})
-})
 
-app.get("/form",async(req,res)=>{
-    res.render("form")
-})
 
-app.post("/submit",async(req,res)=>{
-    const name=req.body.name;
-    const email=req.body.email;
-    const comment=req.body.message;
-    console.log(name)
-    res.send("form submitted")
-})
+
+
+
 
 
 
