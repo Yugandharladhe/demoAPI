@@ -14,7 +14,7 @@ app.use(bodyParser.json(
     {type:'application/json'}
 ))
 app.use(express.static(path.join(__dirname,"public")))
-app.get("/new",(req,res)=>{
+app.get("/",(req,res)=>{
     res.render("index")
 })
 
@@ -40,7 +40,5 @@ app.post("/submit",async(req,res)=>{
 
 
 app.listen(port,async()=>{
-    await mongoose.connect("mongodb+srv://system:pass123@cluster1.ybqcamf.mongodb.net/?retryWrites=true&w=majority")
-    console.log("connection Successfull")
     console.log("app is listening")
 })
