@@ -10,9 +10,7 @@ const { application } = require("express")
 app.set("view engine","hbs")
 app.set("views",path.join(__dirname,"view"))
 
-app.use(bodyParser.json(
-    {type:'application/json'}
-))
+app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname,"public")))
 app.get("/",(req,res)=>{
     res.render("index")
