@@ -16,7 +16,14 @@ app.get("/",(req,res)=>{
     res.render("index")
 })
 
-
+app.post("/contact",async(req,res)=>{
+    const name=req.body.name;
+    const email=req.body.email;
+    const subject=req.body.subject;
+    const message=req.body.message;
+    console.log(name)
+    res.send("Your message has been sent. Thank you!")
+})
 
 
 
